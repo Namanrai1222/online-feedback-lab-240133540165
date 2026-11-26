@@ -140,7 +140,7 @@ public final class FeedbackServer {
                 + "form-action 'self'; base-uri 'none'; frame-ancestors 'none'");
         headers.set("X-Content-Type-Options", "nosniff");
         headers.set("X-Frame-Options", "DENY");
-        headers.set("Referrer-Policy", "no-referrer");
+        headers.set("Referrer-Policy", "same-origin");
         headers.set("Cache-Control", "no-store");
         byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
         exchange.sendResponseHeaders(status, bytes.length);

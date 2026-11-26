@@ -60,6 +60,7 @@ class FeedbackServerTest {
             assertTrue(response.body().contains("name=\"" + field + "\""));
         }
         assertEquals("nosniff", response.headers().firstValue("X-Content-Type-Options").orElseThrow());
+        assertEquals("same-origin", response.headers().firstValue("Referrer-Policy").orElseThrow());
         assertTrue(response.headers().firstValue("Content-Security-Policy").orElseThrow().contains("form-action 'self'"));
         assertTrue(response.headers().firstValue("Access-Control-Allow-Origin").isEmpty());
     }
